@@ -1,4 +1,5 @@
 import discord
+import os
 
 client = discord.Client()
 
@@ -10,9 +11,10 @@ async def on_ready():
 async def on_message(message):
   if message.author == client.user:
     return
-  if message.content.startswith('!hello'):
-    await message.channel.send('Hello!')
+  if message.content.startswith('!start'):
+    await message.channel.send('Welcome to SpyBot!')
 
+client.run(os.environ['TOKEN'])
   
   
 
